@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿慕课网贪吃蛇2017 canvas版</title>
+	<style>
+		body{
+			background: #2f2f2f
+		}
+		.game-box {
+			position:fixed;
+			padding:15px;
+			box-sizing:border-box;
+			width:720px;
+			height:480px;
+			background:#faf8ef;
+			left:50%;
+			top:50%;
+			margin-left:-360px;
+			margin-top:-240px;
+			color:#776e65;
+			z-index:9999999;
+		}
+		.score-container,.best-container {
+			background:#bbada0;
+			border-radius:3px;
+			color:white;
+			float:left;
+			font-size:36px;
+			font-weight:bold;
+			height:50px;
+			line-height:70px;
+			padding:10px 0;
+			position:relative;
+			text-align:center;
+			width:140px
+		}
+		.score-container:before,.best-container:before {
+			content:"";
+			width:27px;
+			height:27px;
+			display:inline-block;
+			margin-right:5px;
+			background-image:url(fruit.png);
+			background-repeat:no-repeat
+		}
+		.score-container::after {
+			content:"当前分数"
+		}
+		.best-container {
+			width:100%;
+			background:#f7921d;
+			margin-top:15px
+		}
+		.best-container::after {
+			content:"最高分数"
+		}
+		.scores-container {
+			padding-top:62px;
+			width:227px;
+			float:right
+		}
+		.game-music {
+			position:absolute;
+			width:26px;
+			height:26px;
+			background:url('close.png');
+			z-index:999;
+			right:15px;
+			top:15px;
+			cursor:pointer
+		}
+		.game-music {
+			background:url('music.png');
+		}
+		.game-music.close {
+			background-position:-26px 0
+		}
+		.score-container::after,.best-container::after {
+			color:#fff;
+			font-size:14px;
+			left:0;
+			line-height:14px;
+			position:absolute;
+			text-align:center;
+			top:10px;
+			width:100%
+		}
+		.game-button {
+			float:right;
+			background:#372c22;
+			border-radius:3px;
+			width:70px;
+			text-decoration:none;
+			color:#fff;
+			font-size:18px;
+			height:70px;
+			line-height:70px;
+			display:block;
+			text-align:center;
+			cursor:pointer
+		}
+		.game-button:hover {
+			color:#fff
+		}
+		.game-info {
+			float:left;
+			margin-top:88px;
+			width:225px;
+			height:124px;
+			background:url("info.png") no-repeat 5px top
+		}
+	</style>
+	<script src="./game.js"></script>
+</head>
+<body>
+	<audio class="snake-audio" loop="loop">
+		<source src="game.mp3" type="audio/mpeg">
+	</audio>
+	<audio class="eat-audio">
+		<source src="eat.mp3" type="audio/mpeg">
+	</audio>
+	<audio class="over-audio">
+		<source src="over.mp3" type="audio/mpeg">
+	</audio>
+	<div class="game-box">
+		<canvas id="gameCanvas" width="450" height="450"></canvas>
+		<div class="scores-container"> 
+			<a class="game-button">开始</a> 
+			<div class="score-container">0</div> 
+			<div class="best-container">0</div> 
+			<div class="game-info"></div> 
+			<div class="game-music"></div>
+		</div>
+	</div>
+</body>
+</html>
